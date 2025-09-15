@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthBot AI - SIH 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="hero-section">
+        <div class="hero-background">
+            <div class="floating-elements">
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="sih-branding">
+                <div class="sih-logo">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h1 class="sih-title">
+                    <span class="sih-text">SIH 2025</span>
+                    <span class="hackathon-text">HACKATHON</span>
+                </h1>
+            </div>
+            
+            <div class="chatbot-intro">
+                <div class="logos-container">
+                    <div class="jeevika-logo">
+                        <div class="jeevika-icon">
+                            <img src="JEEVIKA (1).png" alt="Jeevika Logo" class="jeevika-logo-img">
+                        </div>
+                        
+                    </div>
+                    <div class="chatbot-logo">
+          
+                    </div>
+                </div>
+                <h2 class="chatbot-name">HealthBot AI</h2>
+                <p class="chatbot-tagline">AI-Driven Public Health Assistant</p>
+                <div class="chatbot-description">
+                    <p>Empowering rural and semi-urban communities with instant access to healthcare information, disease awareness, and vaccination schedules through WhatsApp and SMS.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="tab-navigation">
+        <div class="tab-container">
+            <button class="tab-btn active" data-tab="whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp Demo</span>
+            </button>
+            <button class="tab-btn" data-tab="sms">
+                <i class="fas fa-sms"></i>
+                <span>SMS Demo</span>
+            </button>
+            <button class="tab-btn" data-tab="about">
+                <i class="fas fa-info-circle"></i>
+                <span>About Project</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Tab Content -->
+    <main class="main-content">
+        <!-- WhatsApp Tab -->
+        <div class="tab-content active" id="whatsapp-tab">
+            <div class="whatsapp-container">
+                <div class="whatsapp-header">
+                    <div class="whatsapp-contact">
+                        <div class="contact-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h3>HealthBot AI</h3>
+                            <p class="online-status">Online</p>
+                        </div>
+                    </div>
+                    <div class="whatsapp-actions">
+                        <i class="fas fa-phone"></i>
+                        <i class="fas fa-video"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                
+                <div class="whatsapp-chat">
+                    <div class="chat-messages" id="whatsapp-messages">
+                        <div class="message bot-message">
+                            <div class="message-content">
+                                <p>नमस्ते! मैं HealthBot AI हूँ। मैं आपको स्वास्थ्य संबंधी जानकारी, रोग की रोकथाम, और टीकाकरण के बारे में मदद कर सकता हूँ।</p>
+                                <span class="message-time">10:30 AM</span>
+                            </div>
+                        </div>
+                        <div class="message bot-message">
+                            <div class="message-content">
+                                <p>Hello! I'm HealthBot AI. How can I help you with health information today?</p>
+                                <span class="message-time">10:30 AM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="whatsapp-input">
+                    <div class="input-container">
+                        <i class="fas fa-paperclip"></i>
+                        <input type="text" id="whatsapp-input" placeholder="Type a message...">
+                        <i class="fas fa-microphone"></i>
+                        <button class="send-btn" id="whatsapp-send">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SMS Tab -->
+        <div class="tab-content" id="sms-tab">
+            <div class="sms-container">
+                <div class="sms-header">
+                    <div class="sms-contact">
+                        <i class="fas fa-arrow-left"></i>
+                        <div class="contact-info">
+                            <h3>HealthBot AI</h3>
+                            <p>+91-XXXX-HEALTH</p>
+                        </div>
+                    </div>
+                    <div class="sms-actions">
+                        <i class="fas fa-phone"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+                
+                <div class="sms-chat">
+                    <div class="chat-messages" id="sms-messages">
+                        <div class="message bot-message">
+                            <div class="message-content">
+                                <p>Welcome to HealthBot AI! Send 'HELP' for assistance or ask any health-related question.</p>
+                                <span class="message-time">10:30 AM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sms-input">
+                    <div class="input-container">
+                        <input type="text" id="sms-input" placeholder="Type your message...">
+                        <button class="send-btn" id="sms-send">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Tab -->
+        <div class="tab-content" id="about-tab">
+            <div class="about-container">
+                <div class="about-hero">
+                    <div class="about-3d-element">
+                        <div class="rotating-cube">
+                            <div class="cube-face front"><i class="fas fa-heartbeat"></i></div>
+                            <div class="cube-face back"><i class="fas fa-shield-alt"></i></div>
+                            <div class="cube-face right"><i class="fas fa-syringe"></i></div>
+                            <div class="cube-face left"><i class="fas fa-hospital"></i></div>
+                            <div class="cube-face top"><i class="fas fa-user-md"></i></div>
+                            <div class="cube-face bottom"><i class="fas fa-pills"></i></div>
+                        </div>
+                    </div>
+                    <h2>AI-Driven Public Health Revolution</h2>
+                    <p>Transforming healthcare accessibility in rural and semi-urban India</p>
+                </div>
+
+                <div class="about-sections">
+                    <section class="about-section" data-animate="slide-up">
+                        <div class="section-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>Problem Statement</h3>
+                        <p>Limited healthcare awareness and accessibility in rural areas leading to preventable diseases and delayed medical interventions.</p>
+                    </section>
+
+                    <section class="about-section" data-animate="slide-up">
+                        <div class="section-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Our Solution</h3>
+                        <p>A multilingual AI chatbot providing instant healthcare guidance, disease awareness, vaccination schedules, and real-time outbreak alerts through familiar platforms like WhatsApp and SMS.</p>
+                    </section>
+
+                    <section class="about-section" data-animate="slide-up">
+                        <div class="section-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Expected Impact</h3>
+                        <div class="impact-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">80%</div>
+                                <div class="stat-label">Query Accuracy</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">20%</div>
+                                <div class="stat-label">Awareness Increase</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">5M+</div>
+                                <div class="stat-label">Rural Population Reached</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="about-section" data-animate="slide-up">
+                        <div class="section-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Technical Architecture</h3>
+                        <div class="tech-stack">
+                            <div class="tech-item">
+                                <i class="fas fa-brain"></i>
+                                <span>NLP (Rasa/Dialogflow)</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-cloud"></i>
+                                <span>Cloud Deployment</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-database"></i>
+                                <span>Government Health APIs</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>WhatsApp/SMS Integration</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="about-section" data-animate="slide-up">
+                        <div class="section-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Multilingual Support</h3>
+                        <div class="language-grid">
+                            <div class="language-item">हिंदी</div>
+                            <div class="language-item">English</div>
+                            <div class="language-item">বাংলা</div>
+                            <div class="language-item">தமிழ்</div>
+                            <div class="language-item">తెలుగు</div>
+                            <div class="language-item">ಕನ್ನಡ</div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
