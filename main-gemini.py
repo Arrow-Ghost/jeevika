@@ -6,7 +6,6 @@ import os
 
 #                       Speech to text part
 
-'''
 def record_and_save_wav(filename="output.wav"):
     recognizer = sr.Recognizer()
     mic = sr.Microphone()
@@ -19,26 +18,24 @@ def record_and_save_wav(filename="output.wav"):
 
     with open(filename, "wb") as f:
         f.write(audio.get_wav_data())
-    print(f"📁 Audio saved to {filename}")
+    print(f"Audio saved to {filename}")
     return filename
 
 
 def transcribe_audio(filename="output.wav", model_size="base"):
     model = whisper.load_model(model_size)
     result = model.transcribe(filename)             # language
-    print("📄 Transcription:")
+    print("Transcription:")
     print(result["text"])                            # text
     return result["text"]
 
 filename = record_and_save_wav("test.wav")
-'''
 
 
 
 
 
 #                            AI part
-'''
 API_KEY = "AIzaSyDMs-O2oZnqzRqjhri__lmG4jfJJxqawIU"
 genai.configure(api_key=API_KEY)
 model = genai.GenerativeModel(model_name="models/gemini-1.5-flash")  # "models/gemini-1.5-pro"
@@ -47,7 +44,6 @@ query = 'खराब गले जैसे लक्षणों में म
 response = model.generate_content(query)
 print("--- Output ---")
 print(response.text)
-'''
 
 
 
