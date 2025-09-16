@@ -27,7 +27,7 @@ def transcribe_audio(filename="output.wav", model_size="base"):
     result = model.transcribe(filename)             # language
     print("Transcription:")
     print(result["text"])                            # text
-    return result["text"]
+    return result
 
 filename = record_and_save_wav("test.wav")
 
@@ -39,8 +39,8 @@ filename = record_and_save_wav("test.wav")
 API_KEY = "AIzaSyDMs-O2oZnqzRqjhri__lmG4jfJJxqawIU"
 genai.configure(api_key=API_KEY)
 model = genai.GenerativeModel(model_name="models/gemini-1.5-flash")  # "models/gemini-1.5-pro"
-query = 'खराब गले जैसे लक्षणों में मैं अपना ख्याल कैसे रख सकता हूं?'
-# query = transcribe_audio(filename, model_size="base")
+# query = 'खराब गले जैसे लक्षणों में मैं अपना ख्याल कैसे रख सकता हूं?'
+query = transcribe_audio(filename, model_size="base")["text"]
 response = model.generate_content(query)
 print("--- Output ---")
 print(response.text)
@@ -49,13 +49,24 @@ print(response.text)
 
 #                         Text to speech part
 
+text = response.text
+if transcribe_audio(filename, model_size="base") == 'hi':
+    lang = 'hi'
+elif transcribe_audio(filename, model_size="base") == 'mr':
+    lang = 'mr'
+elif transcribe_audio(filename, model_size="base") == 'ta':
+    lang = 'ta'
+elif transcribe_audio(filename, model_size="base") == 'bn':
+    lang = 'bn'
+else:
+    print('Language not supported')
 
-def text_to_speech(text, lang='hi', filename='output.mp3'):
+def text_to_speech(text, lang, filename='output.mp3'):
     tts = gTTS(text=text, lang=lang)
     tts.save(filename)
     print(f"Saved to {filename}")
     os.system(f"afplay {filename}")
     # Windows: os.system(f"start {filename}")
 
-text_to_speech(text='mera naam jeevika hai, mai aapki kaise maddat kar sakti hoon.', lang='hi', filename='output.mp3')
-# text_to_speech("तुमचे स्वागत आहे", lang='mr')
+# text_to_speech(text='mera naam jeevika hai, mai aapki kaise maddat kar sakti hoon.', lang='hi', filename='output.mp3')
+text_to_speech(text=text, lang=lang, filename="output.mp3")
