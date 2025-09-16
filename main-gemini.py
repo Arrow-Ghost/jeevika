@@ -6,7 +6,7 @@ import os
 
 #                       Speech to text part
 
-'''
+
 def record_and_save_wav(filename="output.wav"):
     recognizer = sr.Recognizer()
     mic = sr.Microphone()
@@ -19,19 +19,19 @@ def record_and_save_wav(filename="output.wav"):
 
     with open(filename, "wb") as f:
         f.write(audio.get_wav_data())
-    print(f"📁 Audio saved to {filename}")
+    print(f" Audio saved to {filename}")
     return filename
 
 
 def transcribe_audio(filename="output.wav", model_size="base"):
     model = whisper.load_model(model_size)
     result = model.transcribe(filename)             # language
-    print("📄 Transcription:")
+    print(" Transcription:")
     print(result["text"])                            # text
     return result["text"]
 
 filename = record_and_save_wav("test.wav")
-'''
+transcribe_audio(filename='test.wav', model_size='base')
 
 
 
@@ -53,7 +53,7 @@ print(response.text)
 
 #                         Text to speech part
 
-
+'''
 def text_to_speech(text, lang='hi', filename='output.mp3'):
     tts = gTTS(text=text, lang=lang)
     tts.save(filename)
@@ -63,3 +63,5 @@ def text_to_speech(text, lang='hi', filename='output.mp3'):
 
 text_to_speech(text='mera naam jeevika hai, mai aapki kaise maddat kar sakti hoon.', lang='hi', filename='output.mp3')
 # text_to_speech("तुमचे स्वागत आहे", lang='mr')
+'''
+
