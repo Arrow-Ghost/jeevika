@@ -6,7 +6,6 @@ import os
 
 #                       Speech to text part
 
-
 def record_and_save_wav(filename="output.wav"):
     recognizer = sr.Recognizer()
     mic = sr.Microphone()
@@ -28,7 +27,7 @@ def transcribe_audio(filename="output.wav", model_size="base"):
     result = model.transcribe(filename)             # language
     print(" Transcription:")
     print(result["text"])                            # text
-    return result["text"]
+    return result
 
 filename = record_and_save_wav("test.wav")
 transcribe_audio(filename='test.wav', model_size='base')
@@ -38,16 +37,14 @@ transcribe_audio(filename='test.wav', model_size='base')
 
 
 #                            AI part
-'''
 API_KEY = "AIzaSyDMs-O2oZnqzRqjhri__lmG4jfJJxqawIU"
 genai.configure(api_key=API_KEY)
 model = genai.GenerativeModel(model_name="models/gemini-1.5-flash")  # "models/gemini-1.5-pro"
-query = 'खराब गले जैसे लक्षणों में मैं अपना ख्याल कैसे रख सकता हूं?'
-# query = transcribe_audio(filename, model_size="base")
+# query = 'खराब गले जैसे लक्षणों में मैं अपना ख्याल कैसे रख सकता हूं?'
+query = transcribe_audio(filename, model_size="base")["text"]
 response = model.generate_content(query)
 print("--- Output ---")
 print(response.text)
-'''
 
 
 
