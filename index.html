@@ -3,12 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthBot AI - SIH 2025</title>
+    <title>Jeevika - SIH 2025</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <img src="JEEVIKA (1).png" alt="Jeevika Logo" class="navbar-logo">
+                <span class="navbar-title">Jeevika</span>
+            </div>
+            <div class="navbar-tabs">
+                <button class="navbar-tab" data-target="about-card">
+                    <i class="fas fa-info-circle"></i>
+                    <span data-translate="about-project">About Project</span>
+                </button>
+                <button class="navbar-tab" data-target="whatsapp-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </button>
+                <button class="navbar-tab" data-target="sms-card">
+                    <i class="fas fa-sms"></i>
+                    <span>SMS</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
     <!-- Header Section -->
     <header class="hero-section">
         <div class="hero-background">
@@ -23,11 +47,9 @@
         <div class="hero-content">
             <div class="sih-branding">
                 <div class="sih-logo">
-                    <i class="fas fa-trophy"></i>
+                    <!--i class="fas fa-trophy"></i-->
                 </div>
                 <h1 class="sih-title">
-                    <span class="sih-text">SIH 2025</span>
-                    <span class="hackathon-text">HACKATHON</span>
                 </h1>
             </div>
             
@@ -43,10 +65,10 @@
           
                     </div>
                 </div>
-                <h2 class="chatbot-name">HealthBot AI</h2>
-                <p class="chatbot-tagline">AI-Driven Public Health Assistant</p>
+                <h2 class="chatbot-name" data-translate="chatbot-name">HealthBot AI</h2>
+                <p class="chatbot-tagline" data-translate="chatbot-tagline">AI-Driven Public Health Assistant</p>
                 <div class="chatbot-description">
-                    <p>Empowering rural and semi-urban communities with instant access to healthcare information, disease awareness, and vaccination schedules through WhatsApp and SMS.</p>
+                    <p data-translate="chatbot-description">Empowering rural and semi-urban communities with instant access to healthcare information, disease awareness, and vaccination schedules through WhatsApp and SMS.</p>
                 </div>
             </div>
         </div>
@@ -57,205 +79,294 @@
         <div class="tab-container">
             <button class="tab-btn active" data-tab="whatsapp">
                 <i class="fab fa-whatsapp"></i>
-                <span>WhatsApp Demo</span>
+                <span data-translate="tab-whatsapp">WhatsApp Demo</span>
+                <div class="tab-tooltip" data-translate="tab-whatsapp-tooltip">Experience our WhatsApp health assistant</div>
             </button>
             <button class="tab-btn" data-tab="sms">
                 <i class="fas fa-sms"></i>
-                <span>SMS Demo</span>
+                <span data-translate="tab-sms">SMS Demo</span>
+                <div class="tab-tooltip" data-translate="tab-sms-tooltip">Try our SMS-based health guidance</div>
             </button>
             <button class="tab-btn" data-tab="about">
                 <i class="fas fa-info-circle"></i>
-                <span>About Project</span>
+                <span data-translate="tab-about">About Project</span>
+                <div class="tab-tooltip" data-translate="tab-about-tooltip">Learn more about Jeevika project</div>
             </button>
         </div>
     </nav>
 
-    <!-- Tab Content -->
+    <!-- Main Content Cards -->
     <main class="main-content">
-        <!-- WhatsApp Tab -->
-        <div class="tab-content active" id="whatsapp-tab">
-            <div class="whatsapp-container">
-                <div class="whatsapp-header">
-                    <div class="whatsapp-contact">
-                        <div class="contact-avatar">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <div class="contact-info">
-                            <h3>HealthBot AI</h3>
-                            <p class="online-status">Online</p>
-                        </div>
+        <div class="cards-container">
+            <!-- WhatsApp Card -->
+            <div class="demo-card whatsapp-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fab fa-whatsapp"></i>
+                        <h3 data-translate="tab-whatsapp">WhatsApp Demo</h3>
                     </div>
-                    <div class="whatsapp-actions">
-                        <i class="fas fa-phone"></i>
-                        <i class="fas fa-video"></i>
-                        <i class="fas fa-ellipsis-v"></i>
-                    </div>
+                    <div class="card-subtitle" data-translate="tab-whatsapp-tooltip">Experience our WhatsApp health assistant</div>
                 </div>
-                
-                <div class="whatsapp-chat">
-                    <div class="chat-messages" id="whatsapp-messages">
-                        <div class="message bot-message">
-                            <div class="message-content">
-                                <p>नमस्ते! मैं HealthBot AI हूँ। मैं आपको स्वास्थ्य संबंधी जानकारी, रोग की रोकथाम, और टीकाकरण के बारे में मदद कर सकता हूँ।</p>
-                                <span class="message-time">10:30 AM</span>
+                <div class="card-content">
+                    <div class="whatsapp-container">
+                        <div class="whatsapp-header">
+                            <div class="whatsapp-contact">
+                                <div class="contact-avatar">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="contact-info">
+                                    <h3 data-translate="contact-name">Jeevika</h3>
+                                    <p class="online-status" data-translate="online-status">Online</p>
+                                </div>
+                            </div>
+                            <div class="whatsapp-actions">
+                                <i class="fas fa-phone"></i>
+                                <i class="fas fa-video"></i>
+                                <i class="fas fa-ellipsis-v"></i>
                             </div>
                         </div>
-                        <div class="message bot-message">
-                            <div class="message-content">
-                                <p>Hello! I'm HealthBot AI. How can I help you with health information today?</p>
-                                <span class="message-time">10:30 AM</span>
+                        
+                        <div class="whatsapp-chat">
+                            <div class="chat-messages" id="whatsapp-messages">
+                                <div class="message bot-message">
+                                    <div class="message-content">
+                                        <p>नमस्ते! मैं Jeevika हूँ। मैं आपको स्वास्थ्य संबंधी जानकारी, रोग की रोकथाम, और टीकाकरण के बारे में मदद कर सकता हूँ।</p>
+                                        <span class="message-time">10:30 AM</span>
+                                    </div>
+                                </div>
+                                <div class="message bot-message">
+                                    <div class="message-content">
+                                        <p>Hello! I'm Jeevika. How can I help you with health information today?</p>
+                                        <span class="message-time">10:30 AM</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="whatsapp-input">
-                    <div class="input-container">
-                        <i class="fas fa-paperclip"></i>
-                        <input type="text" id="whatsapp-input" placeholder="Type a message...">
-                        <i class="fas fa-microphone"></i>
-                        <button class="send-btn" id="whatsapp-send">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SMS Tab -->
-        <div class="tab-content" id="sms-tab">
-            <div class="sms-container">
-                <div class="sms-header">
-                    <div class="sms-contact">
-                        <i class="fas fa-arrow-left"></i>
-                        <div class="contact-info">
-                            <h3>HealthBot AI</h3>
-                            <p>+91-XXXX-HEALTH</p>
-                        </div>
-                    </div>
-                    <div class="sms-actions">
-                        <i class="fas fa-phone"></i>
-                        <i class="fas fa-ellipsis-v"></i>
-                    </div>
-                </div>
-                
-                <div class="sms-chat">
-                    <div class="chat-messages" id="sms-messages">
-                        <div class="message bot-message">
-                            <div class="message-content">
-                                <p>Welcome to HealthBot AI! Send 'HELP' for assistance or ask any health-related question.</p>
-                                <span class="message-time">10:30 AM</span>
+                        
+                        <div class="whatsapp-input">
+                            <div class="input-container">
+                                <i class="fas fa-paperclip"></i>
+                                <input type="text" id="whatsapp-input" placeholder="Type a message..." data-translate-placeholder="input-placeholder">
+                                <i class="fas fa-microphone"></i>
+                                <button class="send-btn" id="whatsapp-send">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="sms-input">
-                    <div class="input-container">
-                        <input type="text" id="sms-input" placeholder="Type your message...">
-                        <button class="send-btn" id="sms-send">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- About Tab -->
-        <div class="tab-content" id="about-tab">
-            <div class="about-container">
-                <div class="about-hero">
-                    <div class="about-3d-element">
-                        <div class="rotating-cube">
-                            <div class="cube-face front"><i class="fas fa-heartbeat"></i></div>
-                            <div class="cube-face back"><i class="fas fa-shield-alt"></i></div>
-                            <div class="cube-face right"><i class="fas fa-syringe"></i></div>
-                            <div class="cube-face left"><i class="fas fa-hospital"></i></div>
-                            <div class="cube-face top"><i class="fas fa-user-md"></i></div>
-                            <div class="cube-face bottom"><i class="fas fa-pills"></i></div>
+            <!-- SMS Card -->
+            <div class="demo-card sms-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-sms"></i>
+                        <h3 data-translate="tab-sms">SMS Demo</h3>
+                    </div>
+                    <div class="card-subtitle" data-translate="tab-sms-tooltip">Try our SMS-based health guidance</div>
+                </div>
+                <div class="card-content">
+                    <div class="sms-container">
+                        <div class="sms-header">
+                            <div class="sms-contact">
+                                <i class="fas fa-arrow-left"></i>
+                                <div class="contact-info">
+                                    <h3 data-translate="contact-name">Jeevika</h3>
+                                    <p data-translate="contact-number">+91-XXXX-HEALTH</p>
+                                </div>
+                            </div>
+                            <div class="sms-actions">
+                                <i class="fas fa-phone"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="sms-chat">
+                            <div class="chat-messages" id="sms-messages">
+                                <div class="message bot-message">
+                                    <div class="message-content">
+                                        <p>Welcome to Jeevika! Send 'HELP' for assistance or ask any health-related question.</p>
+                                        <span class="message-time">10:30 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sms-input">
+                            <div class="input-container">
+                                <input type="text" id="sms-input" placeholder="Type your message..." data-translate-placeholder="input-placeholder">
+                                <button class="send-btn" id="sms-send">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <h2>AI-Driven Public Health Revolution</h2>
-                    <p>Transforming healthcare accessibility in rural and semi-urban India</p>
                 </div>
+            </div>
 
-                <div class="about-sections">
-                    <section class="about-section" data-animate="slide-up">
-                        <div class="section-icon">
-                            <i class="fas fa-bullseye"></i>
+            <!-- About Project Card -->
+            <div class="demo-card about-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-info-circle"></i>
+                        <h3 data-translate="tab-about">About Project</h3>
+                    </div>
+                    <div class="card-subtitle" data-translate="tab-about-tooltip">Learn more about Jeevika project</div>
+                </div>
+                <div class="card-content">
+                    <div class="about-container">
+                        <div class="about-hero">
+                            <div class="about-3d-element">
+                                <div class="rotating-cube">
+                                    <div class="cube-face front"><i class="fas fa-heartbeat"></i></div>
+                                    <div class="cube-face back"><i class="fas fa-shield-alt"></i></div>
+                                    <div class="cube-face right"><i class="fas fa-syringe"></i></div>
+                                    <div class="cube-face left"><i class="fas fa-hospital"></i></div>
+                                    <div class="cube-face top"><i class="fas fa-user-md"></i></div>
+                                    <div class="cube-face bottom"><i class="fas fa-pills"></i></div>
+                                </div>
+                            </div>
+                            <h2 data-translate="about-hero-title">AI-Driven Public Health Revolution</h2>
+                            <p data-translate="about-hero-subtitle">Transforming healthcare accessibility in rural and semi-urban India</p>
                         </div>
-                        <h3>Problem Statement</h3>
-                        <p>Limited healthcare awareness and accessibility in rural areas leading to preventable diseases and delayed medical interventions.</p>
-                    </section>
 
-                    <section class="about-section" data-animate="slide-up">
-                        <div class="section-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h3>Our Solution</h3>
-                        <p>A multilingual AI chatbot providing instant healthcare guidance, disease awareness, vaccination schedules, and real-time outbreak alerts through familiar platforms like WhatsApp and SMS.</p>
-                    </section>
+                        <div class="about-sections">
+                            <section class="about-section" data-animate="slide-up">
+                                <div class="section-icon">
+                                    <i class="fas fa-bullseye"></i>
+                                </div>
+                                <h3 data-translate="problem-title">Problem Statement</h3>
+                                <p data-translate="problem-description">Limited healthcare awareness and accessibility in rural areas leading to preventable diseases and delayed medical interventions.</p>
+                            </section>
 
-                    <section class="about-section" data-animate="slide-up">
-                        <div class="section-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3>Expected Impact</h3>
-                        <div class="impact-stats">
-                            <div class="stat-item">
-                                <div class="stat-number">80%</div>
-                                <div class="stat-label">Query Accuracy</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">20%</div>
-                                <div class="stat-label">Awareness Increase</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">5M+</div>
-                                <div class="stat-label">Rural Population Reached</div>
-                            </div>
-                        </div>
-                    </section>
+                            <section class="about-section" data-animate="slide-up">
+                                <div class="section-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <h3 data-translate="solution-title">Our Solution</h3>
+                                <p data-translate="solution-description">A multilingual AI chatbot providing instant healthcare guidance, disease awareness, vaccination schedules, and real-time outbreak alerts through familiar platforms like WhatsApp and SMS.</p>
+                            </section>
 
-                    <section class="about-section" data-animate="slide-up">
-                        <div class="section-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h3>Technical Architecture</h3>
-                        <div class="tech-stack">
-                            <div class="tech-item">
-                                <i class="fas fa-brain"></i>
-                                <span>NLP (Rasa/Dialogflow)</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-cloud"></i>
-                                <span>Cloud Deployment</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-database"></i>
-                                <span>Government Health APIs</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-mobile-alt"></i>
-                                <span>WhatsApp/SMS Integration</span>
-                            </div>
-                        </div>
-                    </section>
+                            <section class="about-section" data-animate="slide-up">
+                                <div class="section-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3>Expected Impact</h3>
+                                <div class="impact-stats">
+                                    <div class="stat-item">
+                                        <div class="stat-card-inner">
+                                            <div class="stat-card-front">
+                                                <div class="stat-number">80%</div>
+                                                <div class="stat-label">Query Accuracy</div>
+                                                <div class="stat-icon">🎯</div>
+                                            </div>
+                                            <div class="stat-card-back">
+                                                <div class="flowchart-container">
+                                                    <div class="flowchart-title">Query Accuracy Flow</div>
+                                                    <div class="flowchart">
+                                                        <div class="flow-node start">User Query</div>
+                                                        <div class="flow-arrow">↓</div>
+                                                        <div class="flow-node process">AI Processing</div>
+                                                        <div class="flow-arrow">↓</div>
+                                                        <div class="flow-node success">80% Accurate</div>
+                                                        <div class="flow-arrow">↓</div>
+                                                        <div class="flow-node result">Health Response</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-card-inner">
+                                            <div class="stat-card-front">
+                                                <div class="stat-number">20%</div>
+                                                <div class="stat-label">Awareness Increase</div>
+                                                <div class="stat-icon">📈</div>
+                                            </div>
+                                            <div class="stat-card-back">
+                                                <div class="flowchart-container">
+                                                    <div class="flowchart-title">Awareness Growth</div>
+                                                    <div class="flowchart">
+                                                        <div class="flow-node start">Health Education</div>
+                                                        <div class="flow-arrow">↓</div>
+                                                        <div class="flow-node process">Community Outreach</div>
+                                                        <div class="flow-arrow">↓</div>
+                                                        <div class="flow-node success">20% Increase</div>
+                                                        <div class="flow-arrow">↓</div>
+                                                        <div class="flow-node result">Better Health</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-card-inner">
+                                            <div class="stat-card-front">
+                                                <div class="stat-number">5M+</div>
+                                                <div class="stat-label">Rural Population Reached</div>
+                                                <div class="stat-icon">🌍</div>
+                                            </div>
+                                            <div class="stat-card-back">
+                                                <div class="flowchart-container">
+                                                    <div class="flowchart-title">Population Reach</div>
+                                                    <div class="flowchart">
+                                                        <div class="flow-node start">Rural Areas</div>
+                                                        <div class="flow-arrow">↓</div>
+                                                        <div class="flow-node process">WhatsApp/SMS</div>
+                                                        <div class="flow-arrow">↓</div>
+                                                        <div class="flow-node success">5M+ Users</div>
+                                                        <div class="flow-arrow">↓</div>
+                                                        <div class="flow-node result">Health Access</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
 
-                    <section class="about-section" data-animate="slide-up">
-                        <div class="section-icon">
-                            <i class="fas fa-globe"></i>
+                            <section class="about-section" data-animate="slide-up">
+                                <div class="section-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h3>Technical Architecture</h3>
+                                <div class="tech-stack">
+                                    <div class="tech-item">
+                                        <i class="fas fa-brain"></i>
+                                        <span>NLP (Rasa/Dialogflow)</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <i class="fas fa-cloud"></i>
+                                        <span>Cloud Deployment</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <i class="fas fa-database"></i>
+                                        <span>Government Health APIs</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <span>WhatsApp/SMS Integration</span>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="about-section" data-animate="slide-up">
+                                <div class="section-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <h3 data-translate="multilingual-title">Multilingual Support</h3>
+                                <div class="language-grid">
+                                    <div class="language-item about-language-btn" data-language="hindi">हिंदी</div>
+                                    <div class="language-item about-language-btn" data-language="english">English</div>
+                                    <div class="language-item about-language-btn" data-language="bengali">বাংলা</div>
+                                    <div class="language-item about-language-btn" data-language="tamil">தமிழ்</div>
+                                    <div class="language-item about-language-btn" data-language="telugu">తెలుగు</div>
+                                    <div class="language-item about-language-btn" data-language="kannada">ಕನ್ನಡ</div>
+                                </div>
+                            </section>
                         </div>
-                        <h3>Multilingual Support</h3>
-                        <div class="language-grid">
-                            <div class="language-item">हिंदी</div>
-                            <div class="language-item">English</div>
-                            <div class="language-item">বাংলা</div>
-                            <div class="language-item">தமிழ்</div>
-                            <div class="language-item">తెలుగు</div>
-                            <div class="language-item">ಕನ್ನಡ</div>
-                        </div>
-                    </section>
+                    </div>
                 </div>
             </div>
         </div>
