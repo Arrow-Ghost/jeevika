@@ -1,0 +1,68 @@
+# whisper local + gpt4all local + gtts
+from gpt4all import GPT4All
+import whisper # ffmpeg not working in mine (windows: choco install ffmpeg --> env path)
+import speech_recognition as sr
+from gtts import gTTS
+import os
+
+#                       Speech to text part
+## record audio and save in .wav file
+def record_and_save_wav(filename="output.wav"):
+    recognizer = sr.Recognizer()
+    mic = sr.Microphone()
+
+    with mic as source:
+        recognizer.adjust_for_ambient_noise(source)
+        print("Speak now...")
+        audio = recognizer.listen(source)
+        print("Saving...")
+
+    with open(filename, "wb") as f:
+        f.write(audio.get_wav_data())
+    print(f"Audio saved to {filename}")
+    return filename
+
+## infer .wav file to text (using whisper)
+os.environ["PATH"] += os.pathsep + r"C:\ffmpeg\bin"
+def transcribe_audio(filename="output.wav", model_size="base"):
+    model = whisper.load_model(model_size)
+    result = model.transcribe(filename)             # language
+    print("Transcription:")
+    print(result["text"])                            # text
+    return result
+
+filename = record_and_save_wav("test.wav")
+os.system(f"afplay {filename}")
+
+
+#                            AI part
+model_path = "/Users/sambhav/Library/Application Support/nomic.ai/GPT4All/Llama-3.2-3B-Instruct-Q4_0.gguf"
+model = GPT4All(model_path)
+system_prompt = (
+    "You are a highly experienced practical medical doctor. "
+    "Answer questions clearly, professionally, and helpfully. "
+    "Use simple language suitable for patients. "
+    "Do not provide medical advice that requires emergency attention."
+    " "
+)
+prompt = "मी माझे आरोग्य कसे चांगले ठेवू शकतो?"
+response = model.generate(system_prompt + prompt)
+print("Response:")
+print(response)
+
+
+#                         Text to speech part
+
+text = response
+lang = transcribe_audio(filename, model_size="base")["language"]
+## audio output
+
+def text_to_speech(text, lang, filename='output.mp3'):
+    tts = gTTS(text=text, lang=lang)
+    tts.save(filename)
+    print(f"Saved to {filename}")
+    os.system(f"afplay {filename}")
+    # Windows: os.system(f"start {filename}")
+
+# text_to_speech(text='हाय अजलान, कशी आहेस', lang='mr', filename='output.mp3')
+text_to_speech(text=text, lang=lang, filename="output.mp3")
