@@ -1,12 +1,13 @@
+# whisper local + gemini api + gtts
 import google.generativeai as genai
-import whisper # ffmpeg not working in mine (windows: choco install ffmpeg)
+import whisper # ffmpeg not working in mine (windows: choco install ffmpeg --> env path)
 import speech_recognition as sr
 from gtts import gTTS
 import os
 
 #                       Speech to text part
-
-'''def record_and_save_wav(filename="output.wav"):
+## record audio and save in .wav file
+def record_and_save_wav(filename="output.wav"):
     recognizer = sr.Recognizer()
     mic = sr.Microphone()
 
@@ -18,28 +19,49 @@ import os
 
     with open(filename, "wb") as f:
         f.write(audio.get_wav_data())
-    print(f" Audio saved to {filename}")
+    print(f"Audio saved to {filename}")
     return filename
 
-record_and_save_wav('output.wav')'''
-
-import os, whisper
-
-# Add ffmpeg path manually (change this if installed elsewhere)
+## infer .wav file to text (using whisper)
 os.environ["PATH"] += os.pathsep + r"C:\ffmpeg\bin"
-
 def transcribe_audio(filename="output.wav", model_size="base"):
     model = whisper.load_model(model_size)
-    result = model.transcribe(filename, fp16=False)
+    result = model.transcribe(filename)             # language
     print("Transcription:")
-    print(result["text"])  # Correct way
-    print(result["language"])
+    print(result["text"])                            # text
     return result
 
-filename = "output.wav"
-transcribe_audio(filename=filename, model_size="base")
+filename = record_and_save_wav("test.wav")
+os.system(f"afplay {filename}")
 
 
 
 
+#                            AI part
 
+API_KEY = "AIzaSyDMs-O2oZnqzRqjhri__lmG4jfJJxqawIU"
+genai.configure(api_key=API_KEY)
+model = genai.GenerativeModel(model_name="models/gemini-1.5-flash")  # "models/gemini-1.5-pro"
+# query = 'खराब गले जैसे लक्षणों में मैं अपना ख्याल कैसे रख सकता हूं?'
+query = transcribe_audio(filename, model_size="base")["text"]
+response = model.generate_content(query)
+print("--- Output ---")
+print(response.text)
+
+
+
+#                         Text to speech part
+
+text = response.text
+lang = transcribe_audio(filename, model_size="base")["language"]
+## audio output
+
+def text_to_speech(text, lang, filename='output.mp3'):
+    tts = gTTS(text=text, lang=lang)
+    tts.save(filename)
+    print(f"Saved to {filename}")
+    os.system(f"afplay {filename}")
+    # Windows: os.system(f"start {filename}")
+
+# text_to_speech(text='हाय अजलान, कशी आहेस', lang='mr', filename='output.mp3')
+text_to_speech(text=text, lang=lang, filename="output.mp3")
